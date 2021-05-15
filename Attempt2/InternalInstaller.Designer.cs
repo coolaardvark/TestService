@@ -1,7 +1,7 @@
 ﻿
 namespace Attempt2
 {
-    partial class Installer1
+    partial class InternalInstaller
     {
         /// <summary>
         /// Required designer variable.

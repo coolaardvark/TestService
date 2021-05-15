@@ -22,25 +22,17 @@ namespace Attempt2
                     }
                     else
                     {
-                        Console.WriteLine("Running as exe");
-
-                        Console.WriteLine("Press return to exit");
-                        Console.ReadLine();
+                        RunExe();
                     }
                 }
                 else
                 {
-                    TextGenerator.WriteMessage("Running as exe!");
+                    RunExe();
                 }
             }
             else
             {
-                ServiceBase[] ServicesToRun;
-                ServicesToRun = new ServiceBase[]
-                {
-                    new TestService()
-                };
-                ServiceBase.Run(ServicesToRun);
+                RunService();
             }
         }
 
@@ -54,6 +46,25 @@ namespace Attempt2
         {
             ManagedInstallerClass.InstallHelper(
                 new string[] { "/u", typeof(Program).Assembly.Location });
+        }
+
+        static void RunService()
+        {
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[]
+            {
+                    new TestService()
+            };
+
+            ServiceBase.Run(ServicesToRun);
+        }
+
+        static void RunExe()
+        {
+            Console.WriteLine("Running as exe");
+
+            Console.WriteLine("Press return to exit");
+            Console.ReadLine();
         }
     }
 }
