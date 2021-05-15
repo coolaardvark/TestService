@@ -16,18 +16,13 @@ namespace Attempt2
 
             serviceProcessInstaller1 = new ServiceProcessInstaller();
             serviceInstaller1 = new ServiceInstaller();
-            // 
-            // serviceProcessInstaller1
-            // 
+
+            // Force request for login at install
             serviceProcessInstaller1.Password = null;
             serviceProcessInstaller1.Username = null;
-            // 
-            // serviceInstaller1
-            // 
+
             serviceInstaller1.ServiceName = "TestService";
-            // 
-            // ProjectInstaller
-            // 
+
             Installers.AddRange(new Installer[] {
                 serviceProcessInstaller1,
                 serviceInstaller1});
